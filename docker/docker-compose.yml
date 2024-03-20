@@ -27,13 +27,13 @@ services:
     expose:
       - "8000"
     environment:
-      DJANGO_SETTINGS_MODULE: 'contact_syncer.settings.prod'
+      DJANGO_SETTINGS_MODULE: 'carlos_voseq.settings.prod'
   nginx:
     restart: always
     build:
       context: ../
       dockerfile: docker/nginx/Dockerfile
-    image: carlosvoseq/carlosvoseqr_nginx
+    image: carlosvoseq/carlosvoseq_nginx
     volumes:
       - app_data:/data
     ports:

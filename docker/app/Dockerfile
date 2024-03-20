@@ -15,7 +15,7 @@ COPY .env /code/.env
 RUN mkdir -p /code
 WORKDIR /code
 
-ADD contact_syncer/. /code/
+ADD carlos_voseq/. /code/
 RUN ls /code
 
 EXPOSE 8000
