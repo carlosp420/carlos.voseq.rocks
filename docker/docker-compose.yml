@@ -1,0 +1,43 @@
+version: '3.5'
+volumes:
+  app_data:
+services:
+  app:
+    restart: always
+    build:
+      context: ../
+      dockerfile: docker/app/Dockerfile
+    image: carlosvoseq/carlosvoseq_app
+    command: |
+      gunicorn
+      --workers 2
+      --threads 2
+      --timeout 3600
+      --max-requests 200
+      --max-requests-jitter 50
+      --graceful-timeout 30
+      --worker-class gevent
+      --log-level debug
+      --error-logfile=-
+      --preload
+      -b 0.0.0.0:8000 carlos_voseq.wsgi
+    volumes:
+      - app_data:/data
+      - /logs
+    expose:
+      - "8000"
+    environment:
+      DJANGO_SETTINGS_MODULE: 'contact_syncer.settings.prod'
+  nginx:
+    restart: always
+    build:
+      context: ../
+      dockerfile: docker/nginx/Dockerfile
+    image: carlosvoseq/carlosvoseqr_nginx
+    volumes:
+      - app_data:/data
+    ports:
+      - "4082:80"
+      - "4432:443"
+    depends_on:
+      - app
