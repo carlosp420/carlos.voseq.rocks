@@ -1,4 +1,3 @@
-from django.http import HttpResponse
 from django.shortcuts import render
 
 
@@ -8,3 +7,7 @@ def index(request):
 
 def manolo(request):
     return render(request, "home/manolo.html")
+
+
+def portfolio(request):
+    return render(request, "home/portfolio.html")

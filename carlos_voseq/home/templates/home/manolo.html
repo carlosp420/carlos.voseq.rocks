@@ -1,4 +1,54 @@
 {% extends 'home/base.html' %}
 {% block title %}
-  Carlos Peña | Fullstack Developer
+  Carlos Peña | Manolo.rocks
 {% endblock title %}
+
+{% block content %}
+<section id="portfolio" class="portfolio">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Manolo.rocks</h2>
+      <p>
+        I started the project Manolo. <a href="https://manolo.rocks">Manolo</a> is a simple search
+        tool that contains the visitor
+        records of several government institutions in Peru. You can type any person name and search
+        for their visits to public institutions. The project is built with Django and PostgreSQL.
+      </p>
+
+      <p class="mt-2">
+        When the project started, the list of visitors to Peruvian institutions were online but
+      difficult to use. There was no way to search for any person of interest. Journalists had
+      to comb through many pages looking for persons names. They could spend many hours just looking
+      through the records of one single institution. Imagine, doing the same for many institutions!</p>
+
+      <p class="mt-2">
+        In order to help them, I wrote a bunch of web scrapers that downloaded all the records,
+      stored everything into a PostgreSQL database and created a simple search tool. The project
+      helped journalists to find the information they needed in a matter of seconds.</p>
+
+      <p class="mt-2">
+        The project became popular and several volunteers joined to write additional spiders,
+        bug fixes and improvements to the cod. The project is still active and it is used by journalists.
+      </p>
+
+      <p class="mt-2">
+        Manolo is currently sponsored by <a href="https://laencerrona.pe/">La Encerrona</a>,
+        an independent media outlet in Peru.</p>
+
+      <p class="mt-2">
+        <a href="https://manolo.rocks">Visit Manolo.rocks</a>
+      </p>
+
+      <p class="mt-3">
+        <a href="https://manolo.rocks">
+
+        <img src="/static/home/assets/img/portfolio/portfolio-1.jpg" class="img-fluid"
+           width="600px"
+           alt="https://manolo.rocks">
+        </a>
+      </p>
+    </div>
+  </div>
+</section>
+{% endblock content %}
